@@ -24,7 +24,7 @@ namespace Game
         private Cannon cannon;
         private bool shieldActivated = false;
         private float speed = MIN_SPEED;
-
+        Image[] ships = Spritesheet.Load(@"Resources\shipsheetparts.png", new Size(200, 200));
 
         public PlayerShip(int shipIndex)
         {
@@ -182,7 +182,7 @@ namespace Game
         
         private Image LoadImage()
         {
-            Image[] ships = Spritesheet.Load(@"Resources\shipsheetparts.png", new Size(200, 200));
+            //Image[] ships = Spritesheet.Load(@"Resources\shipsheetparts.png", new Size(200, 200));
             foreach (Image img in ships)
             {
                 img.RotateFlip(RotateFlipType.Rotate270FlipNone);
