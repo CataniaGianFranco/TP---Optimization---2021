@@ -13,7 +13,7 @@ namespace Game
     public class EnemyShip : GameObject
     {
         private static Random rnd = new Random();
-
+        Image[] ships = Spritesheet.Load(@"Resources\shipsheetparts.png", new Size(200, 200));
         private int shipIndex;
         private EnemyBehavior behavior;
         
@@ -65,7 +65,7 @@ namespace Game
 
         private Image LoadImage()
         {
-            Image[] ships = Spritesheet.Load(@"Resources\shipsheetparts.png", new Size(200, 200));
+            //Image[] ships = Spritesheet.Load(@"Resources\shipsheetparts.png", new Size(200, 200));
             foreach (Image img in ships)
             {
                 img.RotateFlip(RotateFlipType.Rotate270FlipNone);
