@@ -63,13 +63,15 @@ namespace Game
             graphics.DrawImage(LoadImage(), Bounds);
         }
 
+        bool rotated = false;
         private Image LoadImage()
         {
-            //Image[] ships = Spritesheet.Load(@"Resources\shipsheetparts.png", new Size(200, 200));
-            foreach (Image img in ships)
-            {
-                img.RotateFlip(RotateFlipType.Rotate270FlipNone);
-            }
+            if (rotated == false)
+                foreach (Image img in ships)
+                    img.RotateFlip(RotateFlipType.Rotate270FlipNone);
+
+            rotated = true;
+
             Image result = ships[shipIndex];
             Extent = new SizeF(result.Size.Width / 2, result.Size.Height / 2);
             return result;

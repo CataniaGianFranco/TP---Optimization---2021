@@ -179,16 +179,21 @@ namespace Game
         {
             graphics.DrawImage(LoadImage(), Bounds);
         }
-        
+
+        bool rotated = false;
         private Image LoadImage()
         {
-            //Image[] ships = Spritesheet.Load(@"Resources\shipsheetparts.png", new Size(200, 200));
-            foreach (Image img in ships)
-            {
-                img.RotateFlip(RotateFlipType.Rotate270FlipNone);
-            }
+            if (rotated == false)
+                foreach (Image img in ships)
+                    img.RotateFlip(RotateFlipType.Rotate270FlipNone); 
+
             Image result = ships[shipIndex];
-            result.RotateFlip(RotateFlipType.RotateNoneFlipX);
+
+            if (rotated == false)
+                result.RotateFlip(RotateFlipType.RotateNoneFlipX);
+
+            rotated = true;
+
             Extent = new SizeF(result.Size.Width / 2, result.Size.Height / 2);
             return result;
         }
